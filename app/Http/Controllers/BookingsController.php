@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Http\Requests\FormValidation;
 use Illuminate\Http\Request;
 
 class BookingsController extends Controller
@@ -35,20 +36,21 @@ class BookingsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormValidation $request)
     {
+        $validatedData = $request->validated();
+
         $newBook = new Booking();
-        $newBook->guest_full_name = $request->input('full-name');
-        $newBook->guest_credit_card = $request->input('credit-card-number');
-        $newBook->room = $request->input('room');       
-        $newBook->from_date = $request->input('from');       
-        $newBook->to_date = $request->input('to');
-        $newBook->more_details = $request->input('details');
+        $newBook->guest_full_name = $validatedData['full-name'];
+        $newBook->guest_credit_card = $validatedData['credit-card-number'];
+        $newBook->room = $validatedData['room'];
+        $newBook->from_date = $validatedData['from'];
+        $newBook->to_date = $validatedData['to'];
+        $newBook->more_details = $validatedData['details'];
 
         $newBook->save();
 
         return view('booking.success');
-
 
     }
 
@@ -74,7 +76,9 @@ class BookingsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Booking::find($id);
+
+        return view('booking.edit', compact('book'));
     }
 
     /**
@@ -84,9 +88,25 @@ class BookingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FormValidation $request, $id)
     {
-        //
+       
+        // $validatedData = $request->validated();
+        // dd($validatedData);
+        // $existingBook = Booking::find($id);
+        // $existingBook->guest_full_name = $validatedData['full-name'];
+        // $existingBook->guest_credit_card = $validatedData['credit-card-number'];
+        // $existingBook->room = $validatedData['room'];
+        // $existingBook->from_date = $validatedData['from'];
+        // $existingBook->to_date = $validatedData['to'];
+        // $existingBook->more_details = $validatedData['details'];
+
+        // $existingBook->save();
+
+        
+
+        return view('booking.success');
+
     }
 
     /**

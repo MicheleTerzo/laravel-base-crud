@@ -12,6 +12,7 @@
                         <p> <strong>Prenotato dal:</strong>  {{ $book['from_date'] }}</p>
                         <p> <strong>Al:</strong>  {{ $book['to_date'] }}</p>
                         <a class="btn btn-outline-danger" href="{{ route('booking.show', $book->id) }}">VISUALIZZA I DETTAGLI</a>
+                        <a class="btn btn-outline-warning" href="{{route('booking.edit', $book->id)}}">MODIFICA PRENOTAZIONE</a>
                     </div>
                 </div>
             @endforeach
