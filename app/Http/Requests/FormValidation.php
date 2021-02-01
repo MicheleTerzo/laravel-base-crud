@@ -24,12 +24,12 @@ class FormValidation extends FormRequest
     public function rules()
     {
         return [
-            'full-name' => 'required|string|min:2',
-            'credit-card-number' => 'required|min:5|integer',
+            'guest_full_name' => 'required|string|min:5',
+            'guest_credit_card' => 'required|min:5',
             'room' => 'required|min:1',
-            'from' => 'required',
-            'to' => 'required',
-            'details' => 'nullable|max:255'
+            'from_date' => 'required',
+            'to_date' => 'required',
+            'more_details' => 'nullable|max:255'
         ];
     }
 }

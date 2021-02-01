@@ -41,12 +41,12 @@ class BookingsController extends Controller
         $validatedData = $request->validated();
 
         $newBook = new Booking();
-        $newBook->guest_full_name = $validatedData['full-name'];
-        $newBook->guest_credit_card = $validatedData['credit-card-number'];
+        $newBook->guest_full_name = $validatedData['guest_full_name'];
+        $newBook->guest_credit_card = $validatedData['guest_credit_card'];
         $newBook->room = $validatedData['room'];
-        $newBook->from_date = $validatedData['from'];
-        $newBook->to_date = $validatedData['to'];
-        $newBook->more_details = $validatedData['details'];
+        $newBook->from_date = $validatedData['from_date'];
+        $newBook->to_date = $validatedData['to_date'];
+        $newBook->more_details = $validatedData['more_details'];
 
         $newBook->save();
 
@@ -91,17 +91,17 @@ class BookingsController extends Controller
     public function update(FormValidation $request, $id)
     {
        
-        // $validatedData = $request->validated();
-        // dd($validatedData);
-        // $existingBook = Booking::find($id);
-        // $existingBook->guest_full_name = $validatedData['full-name'];
-        // $existingBook->guest_credit_card = $validatedData['credit-card-number'];
-        // $existingBook->room = $validatedData['room'];
-        // $existingBook->from_date = $validatedData['from'];
-        // $existingBook->to_date = $validatedData['to'];
-        // $existingBook->more_details = $validatedData['details'];
+        $validatedData = $request->validated();
+        
+        $existingBook = Booking::find($id);
+        $existingBook->guest_full_name = $validatedData['guest_full_name'];
+        $existingBook->guest_credit_card = $validatedData['guest_credit_card'];
+        $existingBook->room = $validatedData['room'];
+        $existingBook->from_date = $validatedData['from_date'];
+        $existingBook->to_date = $validatedData['to_date'];
+        $existingBook->more_details = $validatedData['more_details'];
 
-        // $existingBook->save();
+        $existingBook->save();
 
         
 

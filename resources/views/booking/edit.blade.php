@@ -11,11 +11,11 @@
                     <div class="row">
                         <div class="col">
                             <p><strong>Nome e Cognome</strong></p>
-                            <input class="form-control" type="text" name="full-name" placeholder="Inserisci Nome e Cognome" value="{{$book->guest_full_name}}">
+                            <input class="form-control" type="text" name="guest_full_name" placeholder="Inserisci Nome e Cognome" value="{{$book->guest_full_name}}">
                         </div>
                         <div class="col">
                             <p><strong>Carta di pagamento</strong></p>
-                            <input class="form-control" type="text" name="credit-card-number"
+                            <input class="form-control" type="text" name="guest_credit_card"
                                 placeholder="Inserisci numero carta" value="{{$book->guest_credit_card}}">
                         </div>
                     </div>
@@ -26,17 +26,17 @@
                         </div>
                         <div class="col-2">
                             <p><strong>Data arrivo</strong></p>
-                            <input class="form-control" type="text" name="from" placeholder="Inserisci Data arrivo" value="{{$book->from_date}}">
+                            <input class="form-control" type="text" name="from_date" placeholder="Inserisci Data arrivo" value="{{$book->from_date}}">
                         </div>
                         <div class="col-2">
                             <p><strong>Data partenza</strong></p>
-                            <input class="form-control" type="text" name="to" placeholder="Inserisci data partenza" value="{{$book->to_date}}">
+                            <input class="form-control" type="text" name="to_date" placeholder="Inserisci data partenza" value="{{$book->to_date}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <p><strong>Note</strong></p>
-                            <textarea class="form-control" name="details">{{$book->more_details}}</textarea>
+                            <textarea class="form-control" name="more_details">{{$book->more_details}}</textarea>
                         </div>
                     </div>
                     <div class="row">
